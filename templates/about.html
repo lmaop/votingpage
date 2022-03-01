@@ -7,8 +7,8 @@
 </head>
 <body>
     <h1 id="page_title">e-CHUNAAV</h1>
-    {% if session['user']%}
-    {% else%}
+    {% if session['user'] %}
+    {% else %}
     <ul>
         <li><a href="{{url_for('app_blueprint.home')}}">Home</a></li>
     </ul>

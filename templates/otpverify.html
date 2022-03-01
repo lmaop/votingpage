@@ -8,7 +8,9 @@
 </head>
 <body>
     <h1 id="page_title">e-CHUNAAV</h1>
-
+    <ul>
+        <li><a href="{{url_for('app_blueprint.logout')}}">logout</a></li>
+    </ul>
     <h1>OTP verification</h1>
     <p>You have successfully logged in , please check your gmail for otp!</p>
     <form action="{{url_for('app_blueprint.otpverify')}}" method="post">

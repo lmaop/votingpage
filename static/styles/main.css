@@ -1,6 +1,6 @@
 /* fonts */
 
-h1,h2,h3,h4,h5,p,li,msg{
+h1,h2,h3,h4,h5,p,li,msg,text{
     font-family: Helvetica, sans-serif;
     color: black;
 }
@@ -52,10 +52,10 @@ li a:hover {
   color: white;
 }
 
-/* form elements
+/* form elements*/
 form{
     text-align = center;
-    width: 35%;
+    width: 55%;
     margin-left : 35%
 }
 
@@ -65,15 +65,28 @@ label{
     font size: 20px;
     font style: bold;
     padding: 5px;
-    display: inline-block
+    display: inline-block;
 }
 input{
-  height: 20%;
-  width: 80%;
+  height: 50px;
+  width: 400px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  margin: 10;
+  padding: 10;
 }
-*/
+#BJP,#CONGRESS,#AAP
+{
+  height: 25px;
+  width: 40px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin: 0;
+  padding: 10;
+}
