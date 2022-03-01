@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='/styles/main.css')}}">
+    <title>About Page</title>
+</head>
+<body>
+    <h1 id="page_title">e-CHUNAAV</h1>
+    {% if session['user']%}
+    {% else%}
+    <ul>
+        <li><a href="{{url_for('app_blueprint.home')}}">Home</a></li>
+    </ul>
+    {% endif%}
+
+    <h1>About</h1>
+    <p>HIIIII</p>
+</body>
+</html>
+
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='/styles/main.css')}}">
+    <link rel="icon" href="{{url_for('static',filename='/styles/icon.ico')}}">
+    <title>Home page</title>
+</head>
+<body>
+    <h1 id="page_title">e-CHUNAAV</h1>
+    <ul>
+        <li><a href="{{url_for('app_blueprint.signup')}}">SignUp</a></li>
+        <li><a href="{{url_for('app_blueprint.login')}}">Login</a></li>
+        <li><a href="{{url_for('app_blueprint.about')}}">About</a></li>
+    </ul>
+</body>
+</html>
