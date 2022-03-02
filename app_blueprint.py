@@ -112,7 +112,6 @@ def otpverify():
         elif session['user'] == 'logout':
             return redirect("/login")
         elif session['user'] == 'otp':
-            print(session['user'])
             return render_template("otpverify.html", msg=msg)  # used in get method and if any error messages
         else:
             return redirect('/login')
@@ -125,12 +124,14 @@ def vote():
         if session['user'] == 'vote':  # 'user' is validated with the OTP
             return render_template('vote.html')  # only then he/she can get access to the vote page
         elif session['user'] == 'voted':
-            return render_template('/voted.html')  # if the 'user' is not the OTP then login page is shown
+            return render_template('voted.html')  # if the 'user' is not the OTP then login page is shown
         else:
             return redirect('/login')
     else:
+        option = request.form.get("options")
+        print(option)
         session['user'] = 'voted'
-        return redirect('/voted')
+        return render_template('voted.html')
 
 
 # this is about page
