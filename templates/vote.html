@@ -14,13 +14,17 @@
     </ul>
     <h1>Voting</h1>
     <p> VOTE FOR YOUR PARTY </p>
+    <p> Vote will be confirmed if the OTP entered is correct</p>
+    <div>{{ msg }}</div>
     <form name="myForm" action="" method="post" onsubmit=""><p>
         <input type="radio" name="options" id="BJP" value="BJP"> Bharatiya Janta Party<br>
         <input type="radio" name="options" id="CONGRESS" value="CONGRESS"> Congress Party <br>
         <input type="radio" name="options" id="AAP" value="AAP"> Aam Aadmi Party <br>
         </p>
+        <br>
+        <input type="number" id="otp" name="otp" placeholder="OTP(Check Gmail)" required>
+        <br>
         <p><input type=submit value=vote></p>
     </form>
-    <p> </p>
 </body>
 </html>
