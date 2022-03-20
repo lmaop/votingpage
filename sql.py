@@ -7,7 +7,7 @@ def cr_table():
     # create a cursor
     c = conn.cursor()
     # create a table
-    c.execute("""CREATE TABLE usersdb(
+    c.execute("""CREATE TABLE users(
             user_id integer primary key,
             username text,
             password text,
@@ -23,7 +23,7 @@ def cr_table():
 
 def insert_val(username, password):
     # conn = sqlite3.connect(':memory:')
-    conn = sqlite3.connect('usersdb.db')
+    conn = sqlite3.connect('users.db')
     # create a cursor
     c = conn.cursor()
     # insert values
@@ -34,9 +34,12 @@ def insert_val(username, password):
     conn.close()
 
 
+insert_val('john', 'johnny')
+
+
 def query_val(username, password):
     # conn = sqlite3.connect(':memory:')
-    conn = sqlite3.connect('usersdb.db')
+    conn = sqlite3.connect('users.db')
     # create a cursor
     c = conn.cursor()
     # query values
