@@ -44,4 +44,3 @@ def encrypt(message, code="hi"):
 def decrypt(message, code="hi"):
     decoded = cryptocode.decrypt(message, code)
     return decoded
-

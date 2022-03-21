@@ -102,7 +102,8 @@ def vote():
             session['pg'] = 'voted'
             return redirect("/voted")
         else:
-            return render_template('login.html')
+            msg = 'Wrong OTP entered please check gmail or try again'
+            return render_template('vote.html', msg=msg)
 
 
 # this is about page
