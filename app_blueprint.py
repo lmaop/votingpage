@@ -77,8 +77,10 @@ def login():
             return render_template("login.html", msg=msg)
             # if wrong info then error message with ambiguity
     else:
-        if 'user' in session:
-            return redirect('/vote')
+        if 'user' in session and session['pg'] == 'vote':
+            msg = 'please vote  ' + session['user']
+            name = session['user']
+            return render_template('vote.html', msg=msg, name=name)
         return render_template("login.html")
     # it either returns to login page with error msg or without error if request mode is GET
 
@@ -91,7 +93,8 @@ def vote():
         if 'user' in session and session['pg'] == 'verified':
             # 'user' is validated with the OTP
             session['pg'] = 'vote'
-            return render_template('vote.html')  # only then he/she can get access to the vote page
+            name = ' '+session['user']
+            return render_template('vote.html', name=name)  # only then he/she can get access to the vote page
         else:
             msg = 'Please Login'
             return render_template('login.html', msg=msg)

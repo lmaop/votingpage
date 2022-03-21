@@ -13,8 +13,8 @@
         <li><a href="{{url_for('app_blueprint.logout')}}">logout</a></li>
     </ul>
     <h1>Voting</h1>
-    <p> VOTE FOR YOUR PARTY </p>
-    <p> Vote will be confirmed if the OTP entered is correct</p>
+    <div>{{name}}</div>
+    <p> VOTE FOR YOUR PARTY... Vote will be counted if the OTP entered is correct</p>
     <div>{{ msg }}</div>
     <form name="myForm" action="" method="post" onsubmit=""><p>
         <input type="radio" name="options" id="BJP" value="BJP"> Bharatiya Janta Party<br>
