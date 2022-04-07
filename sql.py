@@ -1,4 +1,5 @@
 import sqlite3
+# from werkzeug.security import check_password_hash
 
 
 def cr_table():
@@ -21,20 +22,19 @@ def cr_table():
     conn.close()
 
 
-def insert_val(username, password):
+def signup(voter_id, hashed_password, aadhar_no, f_name, l_name, age, city, state, pincode, gmail):
     # conn = sqlite3.connect(':memory:')
     conn = sqlite3.connect('users.db')
     # create a cursor
     c = conn.cursor()
     # insert values
-    c.execute("INSERT INTO users VALUES (?, ?)", (username, password))
+    c.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+              (voter_id, hashed_password, aadhar_no, f_name, l_name, age, city, state, pincode, gmail))
     # commit
     conn.commit()
     # close connection
     conn.close()
 
-
-insert_val('john', 'johnny')
 
 
 def query_val(username, password):

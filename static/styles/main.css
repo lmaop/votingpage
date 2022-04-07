@@ -1,83 +1,33 @@
 /* fonts */
 
-h1,h2,h3,h4,h5,p,li,msg,text{
-    font-family: Helvetica, sans-serif;
-    color: black;
+
+/* navbar config */
+.navbar-brand{
+padding-left: 150px;
 }
+
+ .navbar_links{
+padding-left: 650px;
+}
+
+
 /*bg colour*/
 
-body{
-    background-color: lightgrey;
-    border-color:black;
+#body{
+    background-color: #dfe3ee;
     }
 
-/* heading bar */
-#page_title{
-    font-family: Garamond,sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 10;
-    background-color: lightgrey ;
-    padding: 0;
-    margin: 0;
-}
-/* nav*/
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: lightgrey ;
+#signupform{
+    height: 570px;
+    width: 800px;
+    margin-left: 200px;
+    background-color: #8b9dc3;
+    display:flex;
+    justify-content: center;
+    border-radius: 2px 2px 25px 25px;
 }
 
-li {
-  float: left;
-}
-
-#about{
-    float: right;
-}
-
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-  color: white;
-}
-
-/* form elements*/
-form{
-    text-align = center;
-    width: 55%;
-    margin-left : 35%
-}
-
-label{
-    font-family: Helvetica, sans-serif;
-    color: black;
-    font size: 20px;
-    font style: bold;
-    padding: 5px;
-    display: inline-block;
-}
-input{
-  height: 50px;
-  width: 400px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  resize: vertical;
-  margin: 10;
-  padding: 10;
-}
 #BJP,#CONGRESS,#AAP
 {
   height: 25px;
@@ -90,3 +40,4 @@ input{
   margin: 0;
   padding: 10;
 }
+

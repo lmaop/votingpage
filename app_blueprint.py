@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, request, session
+# from werkzeug.security import generate_password_hash, check_password_hash
 # flask WebDev framework in python
 # Blueprints: they are html route pages linked to the app.py(flaskapp)
 # render_templates :  renders the required html page which is called
@@ -29,23 +30,36 @@ def home():
 def signup():
     if request.method == "POST":
         # if the method is posted with button signup then user info comes into py code
-        fname = request.form.get("fname")
+        voter_id = int(request.form.get("voterid"))
+        aadhar_no = request.form.get("aadharno")
+
+        f_name = request.form.get("fname")
+        l_name = request.form.get("lname")
         age = int(request.form.get("age"))
-        aadharno = int(request.form.get("aadharno"))
-        voter_idno = int(request.form.get("voterid"))
+        city = request.form.get("city")
+        state = request.form.get("state")
+        pincode = int(request.form.get("pincode"))
+
+        gmail = request.form.get("gmail")
         pass_word = request.form.get("password")
         pass_word2 = request.form.get("password1")
-        # all details come into code for verification
-        # will validate voter-id and aadhar-no at some point, right now it is NOT validated
-        c.extend([fname, age, aadharno, voter_idno])  # just using the variables by storing them
-        if age > 18 and pass_word == pass_word2:
-            # if aadhar_no > 1 and voter_id_no >1:
-            # this checks age of user and confirms 2 passwords and( the length of password)
-            testing.write(fname, pass_word)  # it writes the user input into file to check during login
-            msg = 'Sign Up Successful, Login and confirm OTP'  # success message
-            return render_template('login.html', msg=msg)
+
+        if len(str(voter_id)) == 12 and len(aadhar_no) == 12:
+            if age > 18 and pass_word == pass_word2 and testing.checkgmail(gmail) == 'valid':
+                if len(f_name) > 2 and len(l_name) > 2 and len(city) > 2 and len(state) > 2 and len(str(pincode)) > 2:
+                    hashed_password = testing.encrypt(pass_word)
+                    sql.signup(voter_id, hashed_password, aadhar_no, f_name, l_name, age, city, state, pincode, gmail)
+                    msg = 'Sign Up Successful, Login and confirm OTP'  # success message
+                    return render_template('login.html', msg=msg)
+
+                else:
+                    msg = 'Sign Up Unsuccessful, please enter a valid firstname/lastname/state/city/pincode'
+                    return render_template('signup.html', msg=msg)
+            else:
+                msg = 'Sign Up Unsuccessful, you are underage or passwords do not match or gmail invalid'
+                return render_template('signup.html', msg=msg)
         else:
-            msg = 'Not Eligible to vote/ passwords do not match'  # Error message
+            msg = 'Sign Up Unsuccessful, invalid Voter_ID/Aadhar number'
             return render_template('signup.html', msg=msg)
     else:
         return render_template("signup.html")
@@ -83,6 +97,11 @@ def login():
             return render_template('vote.html', msg=msg, name=name)
         return render_template("login.html")
     # it either returns to login page with error msg or without error if request mode is GET
+
+
+@app_blueprint.route('/dashboard')
+def dashboard():
+    return render_template("dashboard.html")
 
 
 # this is the main voting page, has both methods as it has to take a form to get posted
