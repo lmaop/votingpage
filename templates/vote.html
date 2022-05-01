@@ -21,27 +21,38 @@
         </ul>
       </div>
   </nav>
-    <h1>Voting</h1>
-    <div>{{name}}</div>
+  <h1>Voting</h1>
     <p> VOTE FOR YOUR PARTY... Vote will be counted if the OTP entered is correct</p>
     <div>{{ msg }}</div>
-    <form name="myForm" action="" method="post" onsubmit=""><p>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="options" id="BJP" value="BJP" required>
-            <label class="form-check-label" for="BJP"> Bharatiya Janta Party </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="options" id="CONGRESS" value="CONGRESS" required>
-            <label class="form-check-label" for="CONGRESS"> Congress Party </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="options" id="AAP" value="AAP" required>
-            <label class="form-check-label" for="AAP"> Aam Aadmi Party </label>
-        </div>
-        <br>
-        <input type="number" id="otp" name="otp" placeholder="OTP(Check Gmail)" required>
-        <br>
-        <p><input type="submit" class="btn btn-primary" value="vote"></p>
-    </form>
+    <div id="loginform">
+        <form action="{{url_for('app_blueprint.vote')}}" method="post" id="login">
+            <h1>Vote</h1><br>
+            <div class="row">
+                <div class="col">
+                    <label for="BJP"> Bharatiya Janta Party </label>
+                    <input type="radio"  id="BJP"  name="options" value="BJP" required>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <label for="CONGRESS">Congress party</label>
+                    <input type="radio"  id="CONGRESS"  name="options" value="CONGRESS" required>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <label for="AAP">Aam Aadmi Party</label>
+                    <input type="radio"  id="AAP"  name="options" value="AAP" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="otp">OTP(Check Gmail)</label>
+                    <input type="text" class="form-control" id="otp"  name="otp" required>
+                </div>
+            </div><br>
+            <br><input type="submit" class="btn btn-primary"> <br>
+        </form>
+    </div>
 </body>
 </html>

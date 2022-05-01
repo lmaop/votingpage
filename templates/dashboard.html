@@ -13,10 +13,7 @@
       <div class="navbar_links">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{url_for('app_blueprint.logout')}}">logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Contact us</a>
+                <a class="nav-link" href="{{url_for('app_blueprint.logout')}}">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url_for('app_blueprint.about')}}">About</a>
@@ -24,10 +21,7 @@
         </ul>
       </div>
   </nav>
-
-    <h1>Dash board</h1>
-    <p>You have successfully logged in..</p>
-
-
+  <h1>Dash board</h1>  You have successfully logged in.. {{voterid}} <div>{{msg}}</div>
+    <a href="{{url_for('app_blueprint.vote')}}" class="link-secondary">VOTE HERE</a>
 </body>
 </html>

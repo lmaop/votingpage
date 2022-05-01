@@ -28,24 +28,90 @@ def signup(voter_id, hashed_password, aadhar_no, f_name, l_name, age, city, stat
     # create a cursor
     c = conn.cursor()
     # insert values
-    c.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-              (voter_id, hashed_password, aadhar_no, f_name, l_name, age, city, state, pincode, gmail))
+    try:
+        c.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                  (voter_id, hashed_password, aadhar_no, f_name, l_name, age, city, state, pincode, gmail))
+    except sqlite3.IntegrityError:
+        return "error"
     # commit
     conn.commit()
     # close connection
     conn.close()
 
 
-
-def query_val(username, password):
+def query_val(voter_id):  # returns pass if voter id exists
     # conn = sqlite3.connect(':memory:')
     conn = sqlite3.connect('users.db')
     # create a cursor
     c = conn.cursor()
     # query values
-    c.execute("SELECT username,password FROM users where username='"+username+"' and password='"+password+"'")
-    results = c.fetchall()
-    if len(results) == 0:
-        return "invalid"
-    else:
-        return "valid"
+    c.execute("SELECT hash_pass FROM users where voter_id='"+voter_id+"'")
+    result = c.fetchone()
+    # commit
+    conn.commit()
+    # close connection
+    conn.close()
+    return result[0]
+
+
+def query_gmail(voter_id):
+    # conn = sqlite3.connect(':memory:')
+    conn = sqlite3.connect('users.db')
+    # create a cursor
+    c = conn.cursor()
+    # query values
+    c.execute("SELECT gmail FROM users where voter_id='"+voter_id+"'")
+    result = c.fetchone()
+    # commit
+    conn.commit()
+    # close connection
+    conn.close()
+    return result[0]
+
+
+def query_voter(voter_id):
+    # conn = sqlite3.connect(':memory:')
+    conn = sqlite3.connect('users.db')
+    # create a cursor
+    c = conn.cursor()
+    # query values
+    c.execute("SELECT voter_id FROM users where voter_id='"+voter_id+"'")
+    result = c.fetchone()
+    # commit
+    if result:
+        return True
+    return False
+
+
+def vote(voter_id, vote_option):
+    # conn = sqlite3.connect(':memory:')
+    conn = sqlite3.connect('users.db')
+    # create a cursor
+    c = conn.cursor()
+    # insert values
+    try:
+        c.execute("INSERT INTO votes VALUES (?, ?)",
+                  (voter_id, vote_option))
+    except sqlite3.IntegrityError:
+        return "error"
+    # commit
+    conn.commit()
+    # close connection
+    conn.close()
+
+
+def query_vote(voter_id):
+    # conn = sqlite3.connect(':memory:')
+    conn = sqlite3.connect('users.db')
+    # create a cursor
+    c = conn.cursor()
+    # query values
+    c.execute("SELECT voter_id FROM votes where voter_id='"+voter_id+"'")
+    result = c.fetchone()
+    # commit
+    if result:
+        return True
+    return False
+
+
+

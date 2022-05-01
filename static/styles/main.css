@@ -19,13 +19,38 @@ padding-left: 650px;
 
 
 #signupform{
-    height: 570px;
+    height: 580px;
     width: 800px;
-    margin-left: 200px;
+    margin: 10px 0px 0px 200px;
     background-color: #8b9dc3;
     display:flex;
     justify-content: center;
-    border-radius: 2px 2px 25px 25px;
+    border-radius: 25px 25px 25px 25px;
+}
+#loginform{
+    height: 410px;
+    width: 500px;
+    margin: 50px 0px 0px 350px;
+    padding: 20px 20px 20px 20px;
+    background-color: #8b9dc3;
+    display:flex;
+    justify-content: center;
+    border-radius: 25px 25px 25px 25px;
+}
+#dashboardform{
+    height: 410px;
+    width: 500px;
+    margin: 50px 0px 0px 350px;
+    padding: 20px 20px 20px 20px;
+    background-color: #8b9dc3;
+    display:flex;
+    justify-content: center;
+    border-radius: 25px 25px 25px 25px;
+}
+
+#login{
+    height: 320px;
+    width: 300px;
 }
 
 #BJP,#CONGRESS,#AAP

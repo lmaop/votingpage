@@ -24,19 +24,31 @@
         </ul>
       </div>
   </nav>
-    <h1>Login</h1>
-
-    <form action="{{url_for('app_blueprint.login')}}" method="post">
-        <div>{{ msg }}</div>
-        <br>
-        <input type="text" id="userid" name="userid" placeholder="Username" required>
-        <br>
-        <br><input type="password" id="password" name="password" placeholder="Password" required>
-        <br>
-        <br><input type="text" id="gmail" name="gmail" placeholder="Gmail" required>
-        <br>
-        <br><input type="submit" value="Submit">
-    </form>
-
+    <div id="loginform">
+        <form action="{{url_for('app_blueprint.login')}}" method="post" id="login">
+            <h2>Login</h2>
+            <div>{{ msg }}</div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label for="voterid">Voter ID:</label>
+                    <input type="number" class="form-control" placeholder="1117200360XX" id="voterid" name="voterid" required>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" placeholder="Password" id="password"  name="password" required>
+                </div>
+            </div><br>
+            <!--<div class="row">
+                <div class="col">
+                        <label for="gmail">Gmail:</label>
+                        <input type="text" class="form-control" placeholder="Gmail" id="gmail"  name="gmail" required>
+                </div><br>
+            </div>-->
+            <br><button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -74,8 +74,9 @@ def decrypt(hash1, password):
     else:
         return False
 
-# decrypt1('sha256$EHQKC7q3gvQrO6Kh$3f74ff6324e1256b64c676a5a1f3a45c67766f66715851ddd312ea6b2659babc', 'hii')
-# success
 
+# encrypt('password')
+# print(decrypt('sha256$vqyxRqSCE4aynIUf$8b507e843df4844ad25953c07bee4570109e72526eab4df11f4e08f87af7bd95', 'password'))
+# success
 
 
